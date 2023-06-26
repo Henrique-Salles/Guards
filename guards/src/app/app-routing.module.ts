@@ -5,6 +5,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './shared/home/home.component';
 import { AccountComponent } from './shared/account/account.component';
 
+//Guards
+import { canActiveGuard } from './shared/guards/can-active.guard';
+
 const routes: Routes = [
   {
     path: '',
@@ -13,6 +16,7 @@ const routes: Routes = [
   {
     path: 'account',
     component: AccountComponent,
+    canActivate: [canActiveGuard],
   },
 ];
 

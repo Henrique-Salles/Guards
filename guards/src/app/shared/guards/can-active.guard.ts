@@ -19,6 +19,16 @@ export class canActiveGuard implements CanActivate {
     | UrlTree
     | Observable<boolean | UrlTree>
     | Promise<boolean | UrlTree> {
-    return true;
+    if (
+      route.queryParams['account'] === 'admin' &&
+      route.queryParams['password'] === '1234'
+    ) {
+      console.log(state);
+      console.log(route);
+      return true;
+    }
+    console.log(state);
+    console.log(route);
+    return false;
   }
 }
