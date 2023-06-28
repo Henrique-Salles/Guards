@@ -2,11 +2,12 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 //Components Pages
-import { HomeComponent } from './shared/home/home.component';
-import { AccountComponent } from './shared/account/account.component';
+import { HomeComponent } from './shared/pages/home/home.component';
+import { AccountComponent } from './shared/pages/account/account.component';
 
 //Guards
 import { canActiveGuard } from './shared/guards/can-active.guard';
+import { CanDeactiveGuard } from './shared/guards/can-deactive.guard';
 
 const routes: Routes = [
   {
@@ -17,6 +18,7 @@ const routes: Routes = [
     path: 'account',
     component: AccountComponent,
     canActivate: [canActiveGuard],
+    canDeactivate: [CanDeactiveGuard],
   },
 ];
 
